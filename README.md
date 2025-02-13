@@ -105,3 +105,9 @@ This project relies on:
 ## 📝 License
 
 This project is licensed under the MIT License.
+
+## 📝 TODO
+
+- Add NextJs file auto naming
+- Add special syntax highlights with styles
+- Add 'see as' .exts for some useful cases
