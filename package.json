@@ -1,0 +1,24 @@
+{
+  "name": "vscode-settings-builder",
+  "version": "1.0.0",
+  "description": "CLI tool to generate a .vscode/settings.json file with custom title and colors",
+  "type": "module",
+  "bin": {
+    "vscs": "./index.js"
+  },
+  "scripts": {
+    "start": "zx index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "zx": "^7.2.3"
+  },
+  "keywords": [
+    "vscode",
+    "settings",
+    "cli",
+    "color-generator"
+  ],
+  "author": "olyvier",
+  "license": "MIT"
+}
