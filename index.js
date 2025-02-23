@@ -15,6 +15,8 @@ async function main() {
 
   const mainColorHex = mainColor.startsWith('#') ? mainColor : `#${mainColor}`
 
+  const useNextJs = (await question(`${chalk.gray('Do you use Next.Js ? (y/n) ')}`)).trim() || 'n'
+
   // 🔹 Generate relative colors
   const activeBackground = adjustColor(mainColorHex, -30)
   const inactiveBackground = desaturateColor(activeBackground, 0.7)
@@ -22,6 +24,7 @@ async function main() {
   const inactiveForeground = `${activeForeground}80` // Adds 50% opacity
 
   const settings = {
+    '-- EDITOR --': '',
     'window.title': windowTitle,
     'workbench.colorCustomizations': {
       'titleBar.activeBackground': activeBackground,
@@ -30,6 +33,14 @@ async function main() {
       'titleBar.inactiveBackground': inactiveBackground,
       'editor.findMatchBackground': mainColorHex,
     },
+    ...(useNextJs === 'y' && {
+      '-- NEXT.JS --': '',
+      'workbench.editor.customLabels.patterns': {
+        '**/app/**/page.{js,ts,tsx}': 'Page - ${dirname}',
+        '**/app/**/layout.{js,ts,tsx}': 'Layout - ${dirname}',
+        '**/app/**/route.{js,ts,tsx}': 'Route - ${dirname}',
+      },
+    }),
   }
 
   const vscodeDir = path.join(process.cwd(), '.vscode')
