@@ -45,7 +45,7 @@ Navigate to any project folder where you want to generate the `.vscode/settings.
 
 ```bash
 cd /path/to/your/project
-vscset
+vscs
 ```
 
 The tool will prompt you for:
