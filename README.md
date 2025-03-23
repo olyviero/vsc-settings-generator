@@ -2,7 +2,7 @@
 
 ## 📝 Description
 
-Simple CLI tool to generate a `.vscode/settings.json` file with custom project title and color customizations for the Visual Studio Code interface.
+Simple CLI tool to generate a `.vscode/settings.json` file with custom project title, colors and Next.js (optional) helpers for the Visual Studio Code interface.
 
 ---
 
@@ -10,7 +10,7 @@ Simple CLI tool to generate a `.vscode/settings.json` file with custom project t
 
 - Interactive CLI input.
 - Automatic HEX color validation and formatting (supports shorthand like `#FFF`).
-- Next.js convention files renaming
+- Next.js convention files renaming (optional)
 
 ---
 
@@ -20,12 +20,12 @@ Simple CLI tool to generate a `.vscode/settings.json` file with custom project t
 
 ```bash
 git clone https://github.com/olyviero/vsc-settings-generator.git
-cd vscode-settings-builder
 ```
 
-### 2. Install dependencies
+### 2. Move to folder and install dependencies
 
 ```bash
+cd vscode-settings-builder
 npm install
 ```
 
@@ -41,18 +41,17 @@ This will create a global command `vscset` (or any other name you configured in 
 
 ## 📦 Usage
 
-Navigate to any project folder where you want to generate the `.vscode/settings.json` file:
+Navigate to any project folder where you want to generate the `.vscode/settings.json` and run :
 
 ```bash
-cd /path/to/your/project
 vscs
 ```
 
 The tool will prompt you for:
 
-1. **Project title**
-2. **Main HEX color**
-3. **Using Next.js**
+1. Project title
+2. Main HEX color
+3. Using Next.js (y/n)
 
 ---
 
