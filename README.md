@@ -2,22 +2,15 @@
 
 ## 📝 Description
 
-Simple CLI tool to generate a `.vscode/settings.json` file with custom project title and color customizations for the Visual Studio Code interface. It allows you to dynamically set the title of your workspace and customize the colors of the title bar based on a primary color input.
-
-The script adjusts brightness and desaturation of the provided main color to generate additional shades for `activeBackground` and `inactiveBackground`.
+Simple CLI tool to generate a `.vscode/settings.json` file with custom project title and color customizations for the Visual Studio Code interface.
 
 ---
 
 ## 🚀 Features
 
-- Interactive CLI input for project title and main HEX color.
-- Generates `.vscode/settings.json` with custom colors:
-  - `titleBar.activeBackground` → Darker version of the main color.
-  - `titleBar.inactiveBackground` → Even darker and desaturated version.
-  - `titleBar.inactiveForeground` → Main color.
-  - `titleBar.activeForeground` → Contrasted color (white or black).
-  - `editor.findMatchBackground` → Main color.
+- Interactive CLI input.
 - Automatic HEX color validation and formatting (supports shorthand like `#FFF`).
+- Next.js convention files renaming
 
 ---
 
@@ -57,10 +50,9 @@ vscset
 
 The tool will prompt you for:
 
-1. **Project title:** This will appear in the VSCode window title.
-2. **Main HEX color:** Used as a base for title bar customizations (e.g., `#656ad6` or `656ad6` or `f00`).
-
-Once input is provided, the `.vscode/settings.json` file is created with the customized colors.
+1. **Project title**
+2. **Main HEX color**
+3. **Using Next.js**
 
 ---
 
@@ -68,13 +60,20 @@ Once input is provided, the `.vscode/settings.json` file is created with the cus
 
 ```json
 {
-  "window.title": "My Project",
+  "-- EDITOR --": "",
+  "window.title": "VSCS",
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#4c3fa2",
-    "titleBar.activeForeground": "#ffffff",
-    "titleBar.inactiveForeground": "#656ad6",
-    "titleBar.inactiveBackground": "#3a316f",
-    "editor.findMatchBackground": "#656ad6"
+    "titleBar.activeBackground": "#365f69",
+    "titleBar.activeForeground": "#FFFFFF",
+    "titleBar.inactiveForeground": "#FFFFFF80",
+    "titleBar.inactiveBackground": "#3f5c63",
+    "editor.findMatchBackground": "#4e8996"
+  },
+  "-- NEXT.JS --": "",
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.{js,ts,tsx}": "Page - ${dirname}",
+    "**/app/**/layout.{js,ts,tsx}": "Layout - ${dirname}",
+    "**/app/**/route.{js,ts,tsx}": "Route - ${dirname}"
   }
 }
 ```
@@ -108,6 +107,5 @@ This project is licensed under the MIT License.
 
 ## 📝 TODO
 
-- Add NextJs file auto naming
 - Add special syntax highlights with styles
 - Add 'see as' .exts for some useful cases
